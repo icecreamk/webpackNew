@@ -1,3 +1,4 @@
+import './style.css'
 import imgSrc from './images/icon.jpg'
 const a  = () => {
     const root = document.getElementById("root")
