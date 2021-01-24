@@ -1,5 +1,10 @@
+import imgSrc from './images/icon.jpg'
 const a  = () => {
-    console.log(1)
+    const root = document.getElementById("root")
+    const img = new Image ()
+    img.src = imgSrc
+    root.append(img)
+
 }
 
 a()
