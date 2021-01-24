@@ -6,29 +6,31 @@ module.exports = {
   entry: './src/index.js',
   mode: 'development',
   module: {
-      rules: [
-        {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-                loader: 'url-loader',
-                options: {
-                  limit: 8192,
-                },
-            },
-          ],
-        },
-        {
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
-        },
-        {
-          test: /\.(eot|ttf|svg)$/,
-          use: {
-            loader: 'file-loader'
-          }
+    rules: [{
+			test: /\.(jpg|png|gif)$/,
+			use: {
+				loader: 'url-loader',
+				options: {
+					name: '[name]_[hash].[ext]',
+					outputPath: 'images/',
+					limit: 10240
+				}
+			} 
+		}, {
+			test: /\.css$/,
+			use: [
+				'style-loader', 
+        'css-loader',
+				{ 
+          loader: 'postcss-loader'
         }
-      ]
+			]
+		}, {
+			test: /\.(eot|ttf|svg)$/,
+			use: {
+				loader: 'file-loader'
+			} 
+		}]
   },
   plugins: [new HtmlWebpackPlugin({
 		template: 'src/index.html'
