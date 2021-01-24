@@ -20,6 +20,12 @@ module.exports = {
             test: /\.css$/i,
             use: ['style-loader', 'css-loader'],
         },
+        {
+          test: /\.(eot|ttf|svg)$/,
+          use: {
+            loader: 'file-loader'
+          }
+        }
       ]
   },
   output: {
