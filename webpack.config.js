@@ -6,6 +6,13 @@ module.exports = {
   entry: './src/index.js',
   mode: 'development',
   devtool: 'cheap-module-source-map',
+  target: 'web',
+  devServer: {
+	  contentBase: './dist',
+	  open: true,
+	  port: 8080,
+	//   hot: true
+  },
   module: {
     rules: [{
 			test: /\.(jpg|png|gif)$/,
