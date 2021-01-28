@@ -8,3 +8,11 @@
 - url-loader可以将图片处理成base64,使得图片请求数减少
 
 #### loader的执行顺序从下至上，从右向左
+
+### souce-map 最佳实践
+- cheap 错误地方只精确到行，不精确到列
+- module 第三方库的报错也会提示
+- inline map文件不单独生成，而是内联在js文件里
+- eval 使用js的eval语法
+- 开发环境建议: cheap-module-eval-source-map
+- 生产环境建议: cheap-module-source-map

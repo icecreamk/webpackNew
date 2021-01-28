@@ -8,5 +8,5 @@ const a  = () => {
     root.append(img)
 
 }
-
+console.log(b)
 a()
