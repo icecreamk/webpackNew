@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import './style.css'
 import './iconfont/iconfont.css'
 import counter from './counter'
@@ -11,6 +12,8 @@ const a  = () => {
 
 }
 a()
+
+const ccc = 1
 
 var btn = document.createElement('div')
 btn.innerHTML = 'add'

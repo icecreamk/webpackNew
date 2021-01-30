@@ -21,7 +21,7 @@
 - 对于css,样式更新后不会刷新整个页面
 - 对于js,js更新后，可以指定需要刷新的模块，而不是整个页面刷新
 
-#### js实现hmr需要以下这段代码，css不需要是因为css-loader内部已经帮忙实现了
+##### js实现hmr需要以下这段代码，css不需要是因为css-loader内部已经帮忙实现了
 ``` javascript
 if (module.hot) {
     // 当number模块更新时，执行number方法
@@ -30,4 +30,21 @@ if (module.hot) {
         number()
     })
 }
+```
+
+##### 按需加载polyfill
+``` javascript
+presets: [['@babel/preset-env', {
+    useBuiltIns : 'usage'
+}]]
+```
+
+##### 指定babel转译需要兼容的浏览器
+``` javascript
+presets: [['@babel/preset-env', {
+    targets: {
+        chrome: '67'
+    },
+    useBuiltIns : 'usage'
+}]]
 ```
