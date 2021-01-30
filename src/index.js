@@ -1,36 +1,12 @@
-// import '@babel/polyfill'
-import './style.css'
-import './iconfont/iconfont.css'
-import counter from './counter'
-import imgSrc from './images/icon.jpg'
-import number from './number'
-const a  = () => {
-    const root = document.getElementById("root")
-    const img = new Image ()
-    img.src = imgSrc
-    root.append(img)
 
-}
-a()
+import '@babel/polyfill'
+import React, {Component} from 'react'
+import ReactDom from 'react-dom'
 
-const ccc = 1
-
-var btn = document.createElement('div')
-btn.innerHTML = 'add'
-document.body.appendChild(btn)
-btn.onclick = function () {
-    var div = document.createElement('div')
-    div.innerHTML = 'item'
-    document.body.appendChild(div)
+class App extends Component {
+    render() {
+        return <div>132</div>
+    }
 }
 
-counter()
-number()
-
-if (module.hot) {
-    // 当number模块更新时，执行number方法
-    module.hot.accept('./number', () => {
-        document.body.removeChild(document.getElementById('number'))
-        number()
-    })
-}
+ReactDom.render(<App />, document.getElementById('root'))
