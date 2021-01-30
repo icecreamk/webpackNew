@@ -51,6 +51,7 @@ presets: [['@babel/preset-env', {
 
 ##### 业务代码和类库代码区别
 ###### 写业务代码时，配置presets及引入polyfill
+
 ``` javascript
 // webpack.config.js
 presets: [['@babel/preset-env', {
@@ -60,7 +61,7 @@ presets: [['@babel/preset-env', {
 	useBuiltIns : 'usage'
 }]]
 // index.js
-import '@babel/polyfill'
+import '@babel/polyfill' （使用usage后，会帮助引入polyfill，这里也可以不用引入）
 ```
 
 ###### 写库代码时，由于preset-env和polyfill污染全局环境，故使用`plugins`配置更加合理
