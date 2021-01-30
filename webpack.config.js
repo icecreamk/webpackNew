@@ -5,7 +5,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'production',
+  mode: 'devlopment',
   devtool: 'cheap-module-source-map',
   target: 'web',
   devServer: {
@@ -67,9 +67,9 @@ module.exports = {
 	  new CleanWebpackPlugin(),
 	  new webpack.HotModuleReplacementPlugin()
   ],
-//   optimization: {
-//     usedExports: true // 这里可以不用写，生产环境会帮忙配置
-//   },
+  optimization: {
+    usedExports: true // 这里可以不用写，生产环境会帮忙配置
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'

@@ -100,3 +100,31 @@ import { add } from "./math";
 add()
 
 ```
+
+#### code splitting
+- 代码分割与webpack无关
+- webpack中实现代码分割的两种方式
+ + 同步代码，在webpack中配置`splitChunks`即可
+ + 异步代码，无需任何配置，会自动进行代码分割
+
+ ``` javascript 同步代码
+import _ from 'lodash'
+var element = document.createElement('div')
+element.innerHTML = _.join(['1', '2'], '***')
+document.body.appendChild(element)
+
+
+ ```
+ ``` javascript 异步代码
+function getComponent() {
+    return import('lodash').then((_) => {
+        var element = document.createElement('div')
+        element.innerHTML = _.join(['1', '2'], '***')
+        return element
+    })
+}
+
+getComponent().then(element => {
+    document.body.appendChild(element)
+})
+ ```
