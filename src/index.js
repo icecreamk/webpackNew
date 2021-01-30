@@ -1,3 +1,3 @@
 import { add } from "./math";
 
-add()
+add(1,4)
