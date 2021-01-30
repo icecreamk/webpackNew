@@ -66,7 +66,10 @@ module.exports = {
 	  }),
 	  new CleanWebpackPlugin(),
 	  new webpack.HotModuleReplacementPlugin()
-	],
+  ],
+  optimization: {
+    usedExports: true
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'

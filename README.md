@@ -76,3 +76,27 @@ import '@babel/polyfill' （使用usage后，会帮助引入polyfill，这里也
 
 ##### .babelrc
 由于babel在webpack.config中的配置代码较长，所以建议移到`.babelrc`中实现
+
+#### tree shaking
+- 只支持 ES Module
+- 用于解决只引入某个模块的部分方法，但实际打包时会将所有方法打包进去
+- `"sideEffects": ["@babel/polyfill"],` 表示不用对`@babel/polyfill`进行shaking时
+- `"sideEffects": false` 表示没有不需要shaking的模块
+- 由于开发模式需要调试，所以开发模式的shaking还是会将没引入的代码打包，但是会进行标记
+
+``` javascript
+export const add = () => {
+    return a + b
+}
+
+export const minus = () => {
+    return a - b
+}
+```
+
+``` javascript
+import { add } from "./math";
+
+add()
+
+```
