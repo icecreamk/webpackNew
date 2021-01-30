@@ -16,3 +16,5 @@
 - eval 使用js的eval语法
 - 开发环境建议: cheap-module-eval-source-map
 - 生产环境建议: cheap-module-source-map
+
+### Hot Module Replacement 热模块替换
