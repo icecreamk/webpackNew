@@ -48,3 +48,30 @@ presets: [['@babel/preset-env', {
     useBuiltIns : 'usage'
 }]]
 ```
+
+##### 业务代码和类库代码区别
+###### 写业务代码时，配置presets及引入polyfill
+``` javascript
+// webpack.config.js
+presets: [['@babel/preset-env', {
+	targets: {
+		chrome: '67'
+	},
+	useBuiltIns : 'usage'
+}]]
+// index.js
+import '@babel/polyfill'
+```
+
+###### 写库代码时，由于preset-env和polyfill污染全局环境，故使用`plugins`配置更加合理
+``` javascript
+'plugins': [['@babel/plugin-transform-runtime', {
+    'corejs': 2,
+    'helpers': true,
+    'regenerator': true,
+    'useESModules': false
+}]]
+```
+
+##### .babelrc
+由于babel在webpack.config中的配置代码较长，所以建议移到`.babelrc`中实现

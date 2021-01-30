@@ -1,4 +1,4 @@
-import '@babel/polyfill'
+// import '@babel/polyfill'
 import './style.css'
 import './iconfont/iconfont.css'
 import counter from './counter'
