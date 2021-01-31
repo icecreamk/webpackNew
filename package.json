@@ -8,9 +8,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config ./build/webpack.dev.js",
-    "dev-build": "webpack --profile --json > stats.json --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js",
+    "dev": "webpack serve --config ./build/webpack.common.js",
+    "dev-build": "webpack --profile --json > stats.json --config ./build/webpack.common.js",
+    "build": "webpack --env='production' --config ./build/webpack.common.js",
     "start": "webpack serve"
   },
   "repository": {

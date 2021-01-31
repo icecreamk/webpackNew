@@ -1,5 +1,3 @@
-const {merge} = require('webpack-merge')
-const commontConfig = require('./webpack.common.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
@@ -31,4 +29,4 @@ const procConfig = {
   }
 };
 
-module.exports = merge(commontConfig, procConfig)
+module.exports = procConfig

@@ -30,4 +30,4 @@ const devConfig = {
   ]
 }
 
-module.exports = merge(commontConfig, devConfig)
+module.exports = devConfig
