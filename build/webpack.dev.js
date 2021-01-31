@@ -11,12 +11,23 @@ const devConfig = {
     port: 8080,
     hot: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader', 
+          'css-loader',
+          { 
+            loader: 'postcss-loader'
+          }
+        ]
+      },
+    ]
+  },
   plugins: [
 	  new webpack.HotModuleReplacementPlugin()
-  ],
-  optimization: {
-    usedExports: true // 这里在生产环境会帮忙配置可以不用写
-  }
+  ]
 }
 
 module.exports = merge(commontConfig, devConfig)

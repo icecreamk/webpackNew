@@ -33,16 +33,7 @@ module.exports = {
 					limit: 10240
 				}
 			} 
-		}, {
-			test: /\.css$/,
-			use: [
-				'style-loader', 
-        'css-loader',
-				{ 
-          loader: 'postcss-loader'
-        }
-			]
-		}, {
+		},  {
 			test: /\.(eot|ttf|svg)$/,
 			use: {
 				loader: 'file-loader'
@@ -51,8 +42,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-	filename: '[name].js', // 入口打包文件
-	chunkFilename: '[name].chunk.js' // 其他打包文件
+    filename: '[name].js', // 入口打包文件
+    chunkFilename: '[name].chunk.js' // 其他打包文件
   },
   plugins: [
 	  new HtmlWebpackPlugin({
@@ -61,6 +52,7 @@ module.exports = {
 	  new CleanWebpackPlugin(),
   ],
   optimization: {
+ 	  usedExports: true, // 这里在生产环境会帮忙配置可以不用写
 	  splitChunks: {
 		  chunks: 'all'
 	  }

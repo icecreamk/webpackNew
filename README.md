@@ -165,3 +165,7 @@ splitChunks = {
 
 #### preload
 preload将会把资源得下载顺序权重提高，使得关键数据提前下载好
+
+#### css 代码分割
+- webpack 默认将css代码打包到js中
+- `mini-css-extract-plugin` 由于该插件还不支持HMR，所以在生产环境使用
