@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   target: 'web',
@@ -49,7 +50,11 @@ module.exports = {
 	  new HtmlWebpackPlugin({
 		template: 'src/index.html'
 	  }),
-	  new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery', // 当使用$时，会自动帮助引入jquery库
+      _join: ['lodash', 'join'] // 引用lodash的join方法
+    })
   ],
   optimization: {
  	  usedExports: true, // 这里在生产环境会帮忙配置可以不用写

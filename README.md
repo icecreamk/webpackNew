@@ -169,3 +169,16 @@ preload将会把资源得下载顺序权重提高，使得关键数据提前下�
 #### css 代码分割
 - webpack 默认将css代码打包到js中
 - `mini-css-extract-plugin` 由于该插件还不支持HMR，所以在生产环境使用
+
+#### webpack基于模块打包
+- a模块引入的变量在b模块中无法使用
+- 由于模块之间的变量无法分享，降低了模块之间的耦合
+
+#### webpack shimming 垫片
+- 若需要第三方模块a使用第三用模块b中的代码，由于无法修改node_modules中第三方库的代码，这时可以借助垫片
+
+``` javascript
+new webpack.ProvidePlugin({
+    $: 'jquery' // 当使用$时，会自动帮助引入jquery库
+})
+```
