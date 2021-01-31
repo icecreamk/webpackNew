@@ -51,7 +51,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js'
+	filename: '[name].js', // 入口打包文件
+	chunkFilename: '[name].chunk.js' // 其他打包文件
   },
   plugins: [
 	  new HtmlWebpackPlugin({
