@@ -105,7 +105,7 @@ add()
 - 代码分割与webpack无关
 - webpack中实现代码分割的两种方式
  + 同步代码，在webpack中配置`splitChunks`即可
- + 异步代码，无需任何配置，会自动进行代码分割
+ + 异步代码，无需任何配置，会自动进行代码分割(若需要其他代码分割有关的配置，也可以使用`splitChunks`)
 
  ``` javascript 同步代码
 import _ from 'lodash'
@@ -128,3 +128,29 @@ getComponent().then(element => {
     document.body.appendChild(element)
 })
  ```
+
+
+``` javascript
+splitChunks = {
+    chunks: 'async', // 对异步代码进行分割
+    minSize: 20000, // 大于20kb进行分割
+    minRemainingSize: 0,
+    maxSize: 0, // 对分割对代码进行二次分割
+    minChunks: 1, // 被使用多少次时进行代码分割
+    maxAsyncRequests: 30, // 最多只分割多少个文件，超出后就不再进行分割
+    maxInitialRequests: 30, // 入口文件只分割多少个文件，超出后不进行分割
+    enforceSizeThreshold: 50000,
+    cacheGroups: {
+        defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            reuseExistingChunk: true // 之前已经引入过模块，就不会打包，直接复用
+        },
+        default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+        }
+    }
+}
+```
