@@ -16,6 +16,11 @@ const commontConfig = {
 			exclude: '/node_modules/',
 			loader: 'babel-loader',
 			options: {
+				"env": {
+					"development" : {
+						"compact": false
+					}
+				}
 				// presets: [['@babel/preset-env', {
 				// 	targets: {
 				// 		chrome: '67'
