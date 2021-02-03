@@ -27,7 +27,11 @@ const devConfig = {
   },
   plugins: [
 	  new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  output: {
+    filename: '[name].js', // 入口打包文件
+    chunkFilename: '[name].js' // 其他打包文件
+  },
 }
 
 module.exports = devConfig

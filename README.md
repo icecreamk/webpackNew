@@ -182,3 +182,25 @@ new webpack.ProvidePlugin({
     $: 'jquery' // 当使用$时，会自动帮助引入jquery库
 })
 ```
+
+
+#### hash
+- 生产环境的打包文件为了防止缓存，需要加上hash
+- 开发环境webpack内部有缓存机制所以无需处理
+
+#### manifest
+- 在webpack中，manifest用于关联业务代码和库代码的
+- 在旧版的webpack中，由于每次打包manifest有差异，导致了虽然文件内容没有更新，但是hash变了
+- 为了解决hash的问题，解决方式：将manifest放置到runtime里面，而不是嵌套在业务代码和库代码的打包文件中，配置方法如下
+
+···
+
+
+
+```
+optimization: {
+    runtimeChunk: {
+        name: 'runtime'
+    }
+}
+```

@@ -52,9 +52,7 @@ const commontConfig = {
 		}]
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js', // 入口打包文件
-    chunkFilename: '[name].chunk.js' // 其他打包文件
+    path: path.resolve(__dirname, '../dist')
   },
   plugins: [
 	  new HtmlWebpackPlugin({
@@ -69,7 +67,14 @@ const commontConfig = {
   optimization: {
  	  usedExports: true, // 这里在生产环境会帮忙配置可以不用写
 	  splitChunks: {
-		  chunks: 'all'
+		  chunks: 'all',
+		  cacheGroups: {
+			  vendors: {
+				  test: /[\\/]node_modules[\\/]/,
+				  priority: -10,
+				  name: 'vendors'
+			  }
+		  }
 	  }
   }
 }

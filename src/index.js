@@ -8,3 +8,4 @@ document.addEventListener('click', () => {
     })
 })
 ui()
+console.log('content change')

@@ -21,11 +21,16 @@ const procConfig = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css', // 直接引用的文件
-      chunkFilename: '[name].chunk.css', // 间接引用的文件
+      chunkFilename: '[name].chunk.[contenthash].css', // 间接引用的文件
     })
   ],
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})]
+  },
+  output: {
+    // contenthash会根据文件内容是否变化而改变
+    filename: '[name].[contenthash].js', // 入口打包文件
+    chunkFilename: '[name].[contenthash].js' // 其他打包文件
   }
 };
 
