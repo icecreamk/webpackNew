@@ -204,3 +204,60 @@ optimization: {
     }
 }
 ```
+
+#### 引入第三方库的方式
+- webpack中支持多种方式引入配置`libraryTarget: 'umd'`
+``` javascript
+import library from 'library'
+
+const library = require('library')
+
+require(['library'], function() {
+
+})
+
+```
+
+#### 第三方库引入方式
+- libraryTarget和library经常配合使用
+
+``` javascript
+library: 'library', // 通过全局引入时，通过window.library也可使用
+libraryTarget: 'umd', // 支持多种模块化引入方式
+
+// 通过script标签引入后，this.library可以访问library库
+library: 'library',
+libraryTarget: 'this'
+
+// node环境下引入
+library: 'library',
+libraryTarget: 'global'
+
+```
+
+#### externals
+- 配置库代码所依赖的第三方库
+``` javascript
+// 为了防止库代码和业务代码都引用了lodash,导致打包时，
+// 库代码中有一份，业务代码也打包同样的一份
+// 所以在库代码的配置文件中配置externals，表示打包是不对lodash进行打包，而是业务代码自行引入lodash和打包
+externals: ["lodash"]
+
+// 以下配置表示在commonjs形式下引入对变量必须是lodash
+externals: {
+    lodash: {
+        commonjs: 'lodash' // commonjs const xx = require('xx')
+    }
+}
+
+// 以下配置表示通过script标签引入时，必须在全局环境注入_的方式引入
+externals: {
+    lodash: {
+        root: '_',
+        commonjs: 'lodash'
+    }
+}
+
+// 建议配置以下这样，表示无论哪种方式引入，变量名都是lodash
+externals: ["lodash"]
+```
