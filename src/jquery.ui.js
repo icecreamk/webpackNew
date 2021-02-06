@@ -1,3 +1,3 @@
 export function ui() {
-    $('body').css('background', _join(['green'], ''))
+  $('body').css('background', _join(['green'], ''))
 }

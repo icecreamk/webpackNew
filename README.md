@@ -266,3 +266,13 @@ externals: ["lodash"]
 使用路由后，当url中访问某个路径时，会被当成从服务器获取该路径的文件，
 需要配置`historyApiFallback: true`，来将请求定位到单页面中
 若本地可以访问路由，打包到线上无法访问，那么可能需要服务端那边进行配置
+
+#### webpack配置eslint
+安装
+> npm i eslint -D
+快速生成配置文件
+> npx eslint --init
+
+- `overlay: true,`可以将eslint的错误信息以遮罩层的形式出现在页面上
+
+git钩子上面可以在提交代码的时候对esint进行检测
