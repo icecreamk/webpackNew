@@ -26,7 +26,7 @@
     "last 3 iOS versions"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/icecreamk/webpackNew/issues"
   },
@@ -35,11 +35,9 @@
     "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
-    "@babel/runtime": "^7.12.5",
-    "@babel/runtime-corejs2": "^7.12.5",
+    
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
@@ -50,8 +48,7 @@
     "postcss": "^8.2.4",
     "postcss-loader": "^4.2.0",
     "postcss-preset-env": "^6.7.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.17.0",
@@ -60,8 +57,11 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
+    "@babel/runtime-corejs2": "^7.12.5",
     "core-js": "^3.8.3",
-    "jquery": "^3.5.1",
-    "lodash": "^4.17.20"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }

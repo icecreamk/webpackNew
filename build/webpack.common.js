@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const webpack = require('webpack');
 const {merge} = require('webpack-merge');
 const devConfig = require('./webpack.dev.js')
 const prodConfig = require('./webpack.prod.js');
@@ -21,18 +20,6 @@ const commontConfig = {
 						"compact": false
 					}
 				}
-				// presets: [['@babel/preset-env', {
-				// 	targets: {
-				// 		chrome: '67'
-				// 	},
-				// 	useBuiltIns : 'usage'
-				// }]]
-				// 'plugins': [['@babel/plugin-transform-runtime', {
-				// 	'corejs': 2,
-				// 	'helpers': true,
-				// 	'regenerator': true,
-				// 	'useESModules': false
-				// }]]
 			}
 		}, {
 			test: /\.(jpg|png|gif)$/,
@@ -58,11 +45,7 @@ const commontConfig = {
 	  new HtmlWebpackPlugin({
 		template: 'src/index.html'
 	  }),
-    new CleanWebpackPlugin(),
-    new webpack.ProvidePlugin({
-      $: 'jquery', // 当使用$时，会自动帮助引入jquery库
-      _join: ['lodash', 'join'] // 引用lodash的join方法
-    })
+    new CleanWebpackPlugin()
   ],
   optimization: {
  	  usedExports: true, // 这里在生产环境会帮忙配置可以不用写
