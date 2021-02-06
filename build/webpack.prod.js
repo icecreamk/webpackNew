@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-
+const {GenerateSW} = require("workbox-webpack-plugin")
 const procConfig = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
@@ -22,6 +22,10 @@ const procConfig = {
     new MiniCssExtractPlugin({
       filename: '[name].css', // 直接引用的文件
       chunkFilename: '[name].chunk.[contenthash].css', // 间接引用的文件
+    }), 
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   optimization: {
