@@ -1,12 +1,6 @@
-console.log('hello world')
+import _ from 'lodash';
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-        .then((registertion) => {
-            console.log(registertion)
-        }).catch((err) => {
-            console.log(err)
-        } )
-    })
+function a(b) {
+  return _.join('a', b);
 }
+a('1');
