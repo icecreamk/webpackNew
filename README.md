@@ -298,3 +298,10 @@ git钩子上面可以在提交代码的时候对esint进行检测
 ##### 多页面配置
 
 #### 编写一个loader
+
+
+``` javascript
+// 由于module.exports需要绑定原来的this，所以不可使用箭头函数
+module.exports = function () {
+};
+```
