@@ -1,3 +1,6 @@
+const loaderUtils = require('loader-utils');
+
 module.exports = function (source) {
-  return source.replace('hello', 'byebye');
+  const options = loaderUtils.getOptions(this);
+  return source.replace('hello', options.name);
 };
