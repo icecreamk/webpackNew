@@ -12,7 +12,7 @@ module.exports = {
         {
           loader: path.resolve(__dirname, './loaders/replaceLoader.js'),
           options: {
-            name: '111',
+            name: '222',
           },
         },
       ],
