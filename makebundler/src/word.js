@@ -1,2 +1,1 @@
-const word = 'test'
-export word
+export const word = 'test'

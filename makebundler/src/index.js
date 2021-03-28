@@ -1,2 +1,2 @@
-import message from './message'
-console.log(message)
+import message from "./message.js";
+console.log(message);
