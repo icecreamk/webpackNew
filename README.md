@@ -298,6 +298,8 @@ git钩子上面可以在提交代码的时候对esint进行检测
 ##### 多页面配置
 
 #### 编写一个loader
+loader是一个函数，plugins是一个类
+
 
 
 ``` javascript
@@ -305,3 +307,10 @@ git钩子上面可以在提交代码的时候对esint进行检测
 module.exports = function () {
 };
 ```
+
+###### 以下两条命令相等
+> webpack
+> node node_modules/webpack/bin/webpack.js
+
+###### node调试工具
+> node --inspect --inspect-brk node_modules/webpack/bin/webpack.js
