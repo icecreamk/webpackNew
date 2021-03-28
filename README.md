@@ -314,3 +314,7 @@ module.exports = function () {
 
 ###### node调试工具
 > node --inspect --inspect-brk node_modules/webpack/bin/webpack.js
+
+#### 命令行高亮工具
+> npm i cli-highlight -g
+> node xxx.js | highlight
