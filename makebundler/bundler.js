@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const parser = require("@babel/parser");
+const babel = require("@babel/core");
 const traverse = require("@babel/traverse").default;
 
 const moduleAnalyser = (filename) => {
@@ -16,7 +17,10 @@ const moduleAnalyser = (filename) => {
       dependencies[node.source.value] = newFile;
     },
   });
-  console.log(dependencies);
+  const { code } = babel.transformFromAst(ast, null, {
+    presets: ["@babel/preset-env"],
+  });
+  console.log(dependencies, code);
   return {
     filename,
     dependencies,
