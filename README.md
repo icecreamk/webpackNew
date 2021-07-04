@@ -266,6 +266,27 @@ externals: ["lodash"]
 #### main
 - 对外输出文件入口，对于库文件如 'dist/xx.js'
 
+#### PWA
+- install workbox-webpack-plugin
+- 配置webpack
+```
+plugins: [
+    new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true,
+    })
+]
+```
+- 业务代码应用
+```
+if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js') // 注册打包后的serviceWorker文件
+	.then().catch()
+    })
+}
+```
+
 #### 路由
 使用路由后，当url中访问某个路径时，会被当成从服务器获取该路径的文件，
 需要配置`historyApiFallback: true`，来将请求定位到单页面中
