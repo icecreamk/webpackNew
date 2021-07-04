@@ -178,6 +178,7 @@ preload将会把资源得下载顺序权重提高，使得关键数据提前下�
 - 若需要第三方模块a使用第三用模块b中的代码，由于无法修改node_modules中第三方库的代码，这时可以借助垫片
 
 ``` javascript
+// webpack.plugins
 new webpack.ProvidePlugin({
     $: 'jquery' // 当使用$时，会自动帮助引入jquery库
 })
