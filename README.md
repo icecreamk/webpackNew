@@ -156,7 +156,7 @@ splitChunks = {
 ```
 
 #### 代码的优化
-- 可以通过控制台`cover`分析代码的使用率
+- 可以通过控制台`coverage`分析代码的使用率(command+shift+p搜索唤起)
 - 异步的代码应该在使用时加载，不应该在首页加载
 
 #### prefetch
