@@ -263,6 +263,9 @@ externals: {
 externals: ["lodash"]
 ```
 
+#### main
+- 对外输出文件入口，对于库文件如 'dist/xx.js'
+
 #### 路由
 使用路由后，当url中访问某个路径时，会被当成从服务器获取该路径的文件，
 需要配置`historyApiFallback: true`，来将请求定位到单页面中
